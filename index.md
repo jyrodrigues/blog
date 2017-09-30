@@ -165,3 +165,55 @@ setup user name and email
 git config --global user.name "Your Name"
 git config --global user.email "your@email.com"
 ```
+
+# managing apache/nginx process on debian
+This would be [different](https://www.cyberciti.biz/faq/star-stop-restart-apache2-webserver/) for `systemd` users
+``` bash
+# list all services available (TODO does it?)
+ls /etc/init.d/
+
+# check apache status
+sudo /etc/init.d/apache2 status
+
+# start apache
+sudo /etc/init.d/apache2 start
+
+# stop apache
+sudo /etc/init.d/apache2 stop
+```
+
+# removing apache
+``` bash
+# removes apache2 folder only
+sudo apt-get remove apache2
+
+# remove apache2 remaining dependencies
+sudo apt-get autoremove
+```
+
+# installing nginx
+``` bash
+sudo apt-get install nginx
+```
+
+# owner, group and permissions
+Why is it important? How does it work?
+``` bash
+# TODO
+chown owner_name:group_name file_name
+
+# 1 - execute
+# 2 - write
+# 4 - read
+# + = 0, 1, 2, 3, 4, 5, 6 or 7
+#
+# ___
+# _    owner
+#  _   group
+#   _  others
+
+chmod 644 file_name
+
+# owner can read and write, group can read, others can read
+```
+

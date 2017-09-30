@@ -25,6 +25,7 @@ Setting up a basic VM instance (f1-micro) (TODO comment about always free plan, 
 * name (name your website's home machine)
 * zone (some near you?)
 * machine f1-micro (a lightweight to begin with)
+* boot disk (Debian GNU/Linux 9 (strech))
 * allow http
 * allow https
 
@@ -85,7 +86,7 @@ ssh-keygen -t rsa -f ~/.ssh/my-ssh-key -C [USERNAME]
 chmod 400 ~/.ssh/my-ssh-key
 
 # Copy public key value
-cat ~/.ssh/my-ssh-key.pub
+cat ~/.ssh/my-ssh-key.pub | pbcopy # (on a mac)
 ```
 > `-t` stands for cryptography key (TODO is there another name for this?) `type`, we are using `rsa` (TODO link) but there are others like `rsa1`, `dsa`, `ecdsa`, `ed25519`, ...
 > 
@@ -150,4 +151,17 @@ grip --export <input.md> <output.html>
 and add this line to the bottom o the `<style>` tag
 ``` css
     a[aria-hidden="true"] > span { display: none; }
+```
+
+# How to install git on debian
+``` bash
+sudo apt-get update
+sudo apt-get install git-core
+```
+
+setup user name and email
+
+``` bash
+git config --global user.name "Your Name"
+git config --global user.email "your@email.com"
 ```
